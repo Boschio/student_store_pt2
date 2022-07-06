@@ -57,6 +57,7 @@ export default function Signup({ user, setUser }) {
     try {
       const res = await axios.post("http://localhost:3001/auth/register", {
         name: form.name,
+        username: form.username,
         email: form.email,
         password: form.password,
       })
@@ -93,6 +94,18 @@ export default function Signup({ user, setUser }) {
               onChange={handleOnInputChange}
             />
             {errors.name && <span className="error">{errors.name}</span>}
+          </div>
+
+          <div className="input-field">
+            <label htmlFor="username">Username</label>
+              <input
+                type="text"
+                name="username"
+                placeholder="user_name"
+                value={form.username}
+                onChange={handleOnInputChange}
+              />
+            {errors.name && <span className="error">{errors.username}</span>}
           </div>
 
           <div className="input-field">
